@@ -32,7 +32,8 @@ async function main() {
     }
   }))
 
-  console.log(`${files.length}/${Object.keys(messagesByCodes).length} compiler messages documented`)
+  const totalCodes = Object.keys(messagesByCodes).length
+  console.log(`${(files.length / totalCodes * 100).toFixed(2)}% (${files.length}/${totalCodes}) compiler messages documented`)
 
   await write('./data/errors.json', JSON.stringify(errors), { encoding: 'utf-8' })
 }
