@@ -35,6 +35,17 @@ async function main() {
   const totalCodes = Object.keys(messagesByCodes).length
   console.log(`${(files.length / totalCodes * 100).toFixed(2)}% (${files.length}/${totalCodes}) compiler messages documented`)
 
+  for (const [code, { message, category }] of Object.entries(messagesByCodes)) {
+    if (errors.every(err => err.code !== +code)) { // Not very efficient but... who cares, this is a build step, still faster than webpack.
+      errors.push({
+        message,
+        category,
+        code: +code,
+        markdown: ``
+      })
+    }
+  }
+
   await write('./data/errors.json', JSON.stringify(errors), { encoding: 'utf-8' })
 }
 
