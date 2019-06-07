@@ -11,4 +11,6 @@ Some errors I haven't been able to figure out how to trigger, along with the cod
 - TS1012 - Incredibly generic...
 - TS1020 - `{ [a: string = 'a']: any }`
 - TS1022 - `{ [a]: any }`
--
+- TS1041 - No longer used
+- TS1043 - No longer used
+- TS1045 - No longer used
