@@ -14,3 +14,6 @@ Some errors I haven't been able to figure out how to trigger, along with the cod
 - TS1041 - No longer used
 - TS1043 - No longer used
 - TS1045 - No longer used
+- TS1057 - No longer used
+- TS1059 - Couldn't trigger
+- TS1060 - Couldn't trigger
