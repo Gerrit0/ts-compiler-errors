@@ -12,7 +12,9 @@ const write = promisify(fs.writeFile)
 /** @type {Record<number, { message: string, category: string }>} */
 const messagesByCodes = {}
 for (const [message, data] of Object.entries(messages)) {
-  messagesByCodes[data.code] = { message, category: data.category }
+  if (data.category !== "Message" && data.category !== "Suggestion") {
+    messagesByCodes[data.code] = { message, category: data.category }
+  }
 }
 
 async function main() {
