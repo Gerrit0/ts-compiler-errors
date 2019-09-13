@@ -9,6 +9,10 @@ const statusMessage = `${errors.filter(e => e.markdown !== '').length}/${errors.
 
 export type TSError = typeof errors[number]
 
+function getUrlCode () {
+  return +(new URL(location.href).searchParams.get('code') || 0)
+}
+
 export class App extends Component<{}, { search: string, results: TSError[], selected?: TSError }> {
   readonly index: Fuse<TSError, Fuse.FuseOptions<TSError>>
 
@@ -17,10 +21,19 @@ export class App extends Component<{}, { search: string, results: TSError[], sel
 
     this.index = new Fuse(errors, { keys: ['code', 'message'] })
 
-    this.search('101')
+    const startCode = getUrlCode()
+    this.setState({
+      search: '',
+      results: errors.slice(0, 15),
+      selected: errors.find(err => err.code === startCode)
+    })
   }
 
   render () {
+    if (this.state.selected && getUrlCode() !== this.state.selected.code) {
+      location.replace(`?code=${this.state.selected.code}`)
+    }
+
     return <div>
       <div className='search'>
         <input
