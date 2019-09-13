@@ -5,9 +5,10 @@ Documentation on TypeScript's compiler errors, including a guide on how to fix t
 ### Contributing
 Please do!
 
-When you first install the repo, `data/diagnosticMessages.json` will be downloaded from the TypeScript repo. If you want to update it later, run `node scripts/fetch_messages.js`.
-To build run `yarn build`. This will create `dist/bundle.js`. You should then be able to open `index.html` in the root directory in your web browser to view changes locally.
-You can link to different errors with `?code=123` (not yet implemented)
+- When you first install the repo, `data/diagnosticMessages.json` will be downloaded from the TypeScript repo. If you want to update it later, run `node scripts/fetch_messages.js`.
+- To build run `yarn build`. This will create `dist/bundle.js`. You should then be able to open `index.html` in the root directory in your web browser to view changes locally.
+- You can link to different errors with `?code=123` (not yet implemented)
+- Code snippets should use 2 spaces for indentation, without semicolons.
 
 ### Problematic errors
 
